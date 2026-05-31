@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Biography: Ada Lovelace</title>
+    <style>
+        /* Modern Design System */
+        :root {
+            --primary: #6c5ce7;
+            --primary-light: #f3f0ff;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --bg-card: #ffffff;
+            --accent-yellow: #ffeaa7;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Interactive Profile Card Container */
+        .biography-card {
+            background: var(--bg-card);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biography-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Decorative top gradient accent */
+        .biography-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), #a8a5ff);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #4a4a4a;
+        }
+
+        /* Bold Elements with dynamic hover properties */
+        b, strong {
+            color: var(--primary);
+            font-weight: 600;
+            background: var(--primary-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        b:hover, strong:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Italic Elements */
+        i, em {
+            color: #4834d4;
+            font-style: italic;
+        }
+
+        /* Clean Strike-through styling */
+        s, del {
+            color: var(--text-muted);
+            background: #f1f2f6;
+            padding: 0 4px;
+            border-radius: 4px;
+            text-decoration: line-through;
+        }
+
+        /* Modern text highlighting */
+        mark {
+            background: var(--accent-yellow);
+            color: inherit;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Blockquote Styling */
+        blockquote {
+            background: linear-gradient(to right, #f9f9ff, #f5f5fa);
+            border-left: 4px solid var(--primary);
+            margin: 25px 0;
+            padding: 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+            border-radius: 0 16px 16px 0;
+            transition: transform 0.3s ease;
+        }
+
+        blockquote:hover {
+            transform: scale(1.02);
+        }
+
+        /* Inline Quotation text styling */
+        q {
+            font-style: italic;
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        /* Subscript & Superscript layout corrections */
+        sub, sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sub { bottom: -0.25em; color: #0984e3; font-weight: bold; }
+        sup { top: -0.5em; color: #d63031; font-weight: bold; }
+
+        /* Source Note Container */
+        small {
+            display: block;
+            margin-top: 25px;
+            color: var(--text-muted);
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 15px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="biography-card">
+        
+        <h1>Ada Lovelace</h1>
+        <p>Augusta Ada King, Countess of Lovelace was an English mathematician and writer brilliant ahead of her time.</p>
+
+        <h2>Main Achievement</h2>
+        <p>She working alongside Charles Babbage on his mechanical computer design. During this partnership, she published the first algorithm meant to be run by a machine, making her the <strong>world's first computer programmer</strong>. This was truly her <b>greatest historical legacy</b>.</p>
+
+        <h2>Personal Reflections</h2>
+        <p>Ada possessed a unique worldview, viewing calculations not just as raw data processing, but as an art form. She felt a deep connection to her work, describing her lifelong mindset as a blend of <i>"poetical science"</i> which allowed her to see computing through an <em>imaginative, creative lens</em>.</p>
+
+        <h2>Key Value</h2>
+        <p>Her work teaches us that the ultimate core value of modern technology is <mark>creative collaboration</mark> between human imagination and raw processing power.</p>
+
+        <h2>Historical Corrections</h2>
+        <p>Many early textbooks mistakenly claimed she only checked mathematical tables. However, modern research shows she <del>was just a basic calculator helper</del> and debunked theories that <s>she did not write the formulas herself</s>.</p>
+
+        <h2>Technical & Scientific Context</h2>
+        <p>While computer science deals with binary systems today, early mechanical theories shared logic with chemical structural formulas like H<sub>2</sub>O. Her foundational paper was published in the 19<sup>th</sup> century, completely rewriting computing boundaries.</p>
+
+        <h2>Inspiring Quote</h2>
+        <blockquote title="Hover over me!">
+            "That brain of mine is something more than merely mortal; as time will show."
+        </blockquote>
+
+        <h3>A Short Declaration</h3>
+        <p>She boldly claimed to her peers, <q>I intend to incorporate the physics of the universe.</q></p>
+
+        <small>Source Note: Historical data compiled from open-source biography archives, dated 2026.</small>
+
+    </main>
+
+</body>
+</html>
