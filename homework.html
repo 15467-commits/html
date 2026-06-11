@@ -1,376 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My Dream School Timetable Assignment">
-    <meta name="author" content="Student">
-    <title>My Dream School Timetable</title>
-    <style>
-        /* --- RESET & BASE STYLES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0f172a, #1e1b4b);
-            color: #f8fafc;
-            min-height: 100vh;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* --- CONTAINER & ANIMATIONS --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 10px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2); }
-            50% { text-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 30px rgba(139, 92, 246, 0.4); }
-        }
-
-        /* --- HEADER --- */
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            background: linear-gradient(to right, #a78bfa, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            animation: glow 3s infinite ease-in-out;
-        }
-
-        header p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        /* --- CARDS & SECTIONS --- */
-        section {
-            background: rgba(30, 41, 59, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: translateY(0);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInUp 1s ease-out both;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
-        }
-
-        /* Staggered entry animations for sections */
-        section:nth-child(1) { animation-delay: 0.2s; }
-        section:nth-child(2) { animation-delay: 0.4s; }
-        section:nth-child(3) { animation-delay: 0.6s; }
-        section:nth-child(4) { animation-delay: 0.8s; }
-        section:nth-child(5) { animation-delay: 1.0s; }
-        section:nth-child(6) { animation-delay: 1.2s; }
-
-        h2 {
-            font-size: 1.6rem;
-            color: #f472b6;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid rgba(244, 114, 182, 0.2);
-            padding-bottom: 8px;
-        }
-
-        /* --- HYPERLINKS --- */
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        /* Using standard <a> tags with explicit href and target attributes */
-        .links-grid a {
-            display: block;
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            color: #38bdf8;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .links-grid a:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: #38bdf8;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-        }
-
-        /* --- LISTS (ORDERED & UNORDERED) --- */
-        ol, ul {
-            padding-left: 20px;
-        }
-
-        li {
-            padding: 8px 10px;
-            margin-bottom: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        li:hover {
-            transform: translateX(8px);
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-        }
-
-        /* --- DESCRIPTION LISTS --- */
-        dl {
-            background: rgba(15, 23, 42, 0.4);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #8b5cf6;
-        }
-
-        dt {
-            font-weight: bold;
-            color: #8b5cf6;
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-
-        dt:first-child {
-            margin-top: 0;
-        }
-
-        dd {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            color: #cbd5e1;
-        }
-
-        /* --- TABLES --- */
-        .table-responsive {
-            overflow-x: auto;
-            border-radius: 12px;
-            margin-top: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            background: rgba(15, 23, 42, 0.4);
-        }
-
-        /* Enhancing the presentation of native borders requested by guidelines */
-        table[border] {
-            border-color: rgba(139, 92, 246, 0.3) !important;
-        }
-
-        th, td {
-            padding: 16px;
-        }
-
-        th {
-            background-color: rgba(139, 92, 246, 0.2);
-            color: #a78bfa;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-
-        tr {
-            transition: background-color 0.3s ease;
-        }
-
-        tr:hover td {
-            background-color: rgba(255, 255, 255, 0.04);
-            color: #fff;
-        }
-
-        .break-row {
-            background-color: rgba(244, 114, 182, 0.05) !important;
-            font-style: italic;
-            text-align: center;
-            color: #f472b6;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>My Media Adventure</title>
 </head>
+
 <body>
 
-    <div class="container">
-        <header>
-            <h1>My Dream School Timetable</h1>
-            <p>Links, Tables, and Lists Presentation</p>
-        </header>
+  <center>
 
-        <section>
-            <h2>Useful Learning Links</h2>
-            <div class="links-grid">
-                <a href="https://www.wikipedia.org" target="_blank">Wikipedia Portal</a>
-                <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
-                <a href="https://www.codecademy.com" target="_blank">Codecademy Dashboard</a>
-                <a href="https://www.nasa.gov" target="_blank">NASA Science Portal</a>
-            </div>
-        </section>
+    <h1>My Media Adventure Webpage</h1>
 
-        <section>
-            <h2>My Morning School Routine</h2>
-            <ol>
-                <li>07:00 AM — Holographic AI Wake-up Call & Meditation</li>
-                <li>07:20 AM — Nutritious Energizer Breakfast Smoothie</li>
-                <li>07:45 AM — Board the Anti-Gravity Jet-Bus to Campus</li>
-                <li>08:00 AM — Arrival & Synchronization with Personal Learning Pod</li>
-            </ol>
-        </section>
+    <p>
+      Welcome to my fun webpage! Here, you can explore images, listen to music, watch a video, and play a game.
+    </p>
 
-        <section>
-            <h2>Things I Want in My Dream School</h2>
-            <ul>
-                <li>Virtual Reality History Labs (Travel to ancient Rome instantly!)</li>
-                <li>Zero-Gravity Sports Arena and Hoverboard Parks</li>
-                <li>Complimentary Gourmet AI-Chefs cooking healthy personalized meals</li>
-                <li>No heavy backpacks — entire curriculum delivered via sleek AR glasses</li>
-            </ul>
-        </section>
+    <hr>
 
-        <section>
-            <h2>School Subject Descriptions</h2>
-            <dl>
-                <dt>Quantum Physics</dt>
-                <dd>Understanding the building blocks of reality using fully immersive quantum simulation models.</dd>
-                
-                <dt>AI Ethics & Coding</dt>
-                <dd>Learning how to program companion droids safely while exploring the philosophies of tomorrow.</dd>
-                
-                <dt>Exo-Botany</dt>
-                <dd>Studying alien plant species grown inside the school's bio-dome greenhouse system.</dd>
-            </dl>
-        </section>
+    <h2>Space mission gallery</h2>
 
-        <section>
-            <h2>Timetable</h2>
-            <div class="table-responsive">
-                <table border="3">
-                    <thead>
-                        <tr>
-                            <th>Time Block</th>
-                            <th>Monday</th>
-                            <th>Tuesday</th>
-                            <th>Wednesday</th>
-                            <th>Thursday</th>
-                            <th>Friday</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>08:30 - 10:00</strong></td>
-                            <td>Quantum Physics</td>
-                            <td>AI Ethics</td>
-                            <td>Quantum Physics</td>
-                            <td>AI Ethics</td>
-                            <td>Exo-Botany Lab</td>
-                        </tr>
-                        <tr>
-                            <td><strong>10:00 - 11:30</strong></td>
-                            <td>Hoverboard Mastery</td>
-                            <td>Exo-Botany</td>
-                            <td>Hoverboard Mastery</td>
-                            <td>Exo-Botany</td>
-                            <td>VR History Tour</td>
-                        </tr>
-                        <tr class="break-row">
-                            <td><strong>11:30 - 12:30</strong></td>
-                            <td colspan="5">🪐 Midday Re-charging & Gourmet Lunch Break 🪐</td>
-                        </tr>
-                        <tr>
-                            <td><strong>12:30 - 14:00</strong></td>
-                            <td>Cyber Coding</td>
-                            <td>Telepathy Basics</td>
-                            <td>Cyber Coding</td>
-                            <td>Astronomy Practicum</td>
-                            <td>Project Showcase</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <p>
+      These images show my exciting space adventure.
+    </p>
 
-        <section>
-            <h2>Activities Table</h2>
-            <div class="table-responsive">
-                <table border="2">
-                    <thead>
-                        <tr>
-                            <th>Activity Name</th>
-                            <th>Category</th>
-                            <th>Fun Rating</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Zero-G Dodgeball</td>
-                            <td>Athletics</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                        </tr>
-                        <tr>
-                            <td>Time Travel History Sim</td>
-                            <td>Academics</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                        </tr>
-                        <tr>
-                            <td>Droid Mechanics Lab</td>
-                            <td>Engineering</td>
-                            <td>⭐⭐⭐⭐★</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <img src="rocket.png" alt="A rocket flying into space" width="300" height="300">
+    <img src="planet.png" alt="A colourful planet in space" width="300" height="300">
+    <img src="astronaut.png" alt="An astronaut exploring space" width="300" height="300">
 
-        <footer>
-            <p>Designed for the Future Academy Assignment • Built with strict Checklist compliance</p>
-        </footer>
-    </div>
+    <hr>
+
+    <h2>Aquatic beats party</h2>
+
+    <p>
+      Play the music and enjoy the aquatic animal video.
+    </p>
+
+    <audio controls loop>
+      <source src="music.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+
+    <br><br>
+
+    <video width="500" height="350" controls poster="poster.png" loop>
+      <source src="aqua.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <hr>
+
+    <h2>Super game zone</h2>
+
+    <p>
+      Play this Scratch game directly inside the webpage.
+    </p>
+
+    <iframe 
+      src="https://scratch.mit.edu/projects/60917032/embed"
+      allowtransparency="true"
+      width="500"
+      height="400"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen>
+    </iframe>
+
+    <hr>
+
+    <h2>Mission complete!</h2>
+
+    <p>
+      I used image, audio, video, and iframe tags to make this HTML media webpage.
+    </p>
+
+  </center>
 
 </body>
+
 </html>
