@@ -1,311 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nourish & Glow | Food & Nutrition Blog</title>
-    <style>
-        /* Modern CSS Variable Theme */
-        :root {
-            --primary-color: #2c6e49;
-            --secondary-color: #4c9a2a;
-            --text-dark: #333333;
-            --bg-light: #fefefe;
-            --bg-accent: #f4f9f4;
-            --card-border: #e2ebe2;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cartoon Character Card</title>
 
-        /* Reset and Base Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: #fafdfa;
-        }
+    /* Universal Selector - applies to everything on the page */
+    * {
+      font-size: 16px;
+    }
 
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+    /* Element Selectors */
+    body {
+      background-color: lightyellow;
+    }
 
-        a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
+    h1 {
+      color: darkblue;
+    }
 
-        /* Layout Main Container */
-        main {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
+    h2 {
+      color: purple;
+    }
 
-        @media (min-width: 768px) {
-            main {
-                grid-template-columns: 2fr 1fr;
-            }
-            .full-width-section {
-                grid-column: span 2;
-            }
-        }
+    p {
+      color: dimgray;
+    }
 
-        /* 1. Header Styles */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+    /* Class Selector */
+    .cartoon-detail {
+      color: darkgreen;
+      font-weight: bold;
+    }
 
-        header h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
+    /* ID Selector */
+    #cartoon-card {
+      background-color: lightcyan;
+    }
 
-        nav a {
-            color: #e8f5e9;
-            margin-left: 20px;
-            font-size: 1rem;
-        }
+  </style>
 
-        nav a:hover {
-            color: #ffffff;
-        }
-
-        /* Section Commons */
-        section {
-            background: var(--bg-light);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--card-border);
-            padding-bottom: 8px;
-        }
-
-        /* 2. Healthy Plate Section (Articles & Figures) */
-        article {
-            margin-bottom: 25px;
-        }
-
-        article:last-of-type {
-            margin-bottom: 0;
-        }
-
-        figure {
-            margin: 15px 0;
-            background: var(--bg-accent);
-            border-radius: 6px;
-            overflow: hidden;
-            text-align: center;
-            padding: 10px;
-            border: 1px dashed var(--secondary-color);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        figcaption {
-            margin-top: 8px;
-            font-size: 0.9rem;
-            color: #555;
-            font-style: italic;
-        }
-
-        /* 3. Nutrition Tips Section */
-        h3 {
-            color: var(--secondary-color);
-            margin-bottom: 8px;
-            font-size: 1.3rem;
-        }
-
-        /* 4. Quick Note (Aside Component) */
-        aside {
-            background-color: var(--bg-accent);
-            border-left: 5px solid var(--primary-color);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            height: fit-content;
-        }
-
-        aside h2 {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        .aside-box {
-            padding: 10px 0;
-        }
-
-        /* 5. Video Section (Responsive Iframe) */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 6px;
-            margin-top: 15px;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* 6. Contact Section */
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .contact-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-        }
-
-        /* 7. Footer Styles */
-        footer {
-            background-color: #222;
-            color: #bbb;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: var(--secondary-color);
-            margin: 0 10px;
-        }
-    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Nourish & Glow</h1>
-        <nav>
-            <a href="#healthy-plate">Healthy Plate</a>
-            <a href="#nutrition-tips">Tips</a>
-            <a href="#video-learning">Watch</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <h1>My Cartoon Character Card</h1>
 
-    <main>
+  <!-- Inline CSS -->
+  <p style="color: crimson;">Meet my favourite cartoon character!</p>
 
-        <div class="main-content-flow">
-            
-            <section id="healthy-plate">
-                <h2>Balanced Meals & Smart Snacks</h2>
-                
-                <article>
-                    <p>Building a healthy plate doesn't have to be complicated. By focusing on colorful, whole foods, you ensure your body gets a rich balance of micronutrients and clean energy to power your day.</p>
-                    
-                    <figure>
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Fresh macro bowl with salmon, avocado, and greens">
-                        <figcaption>Figure 1: A perfect example of a balanced macro-nutrient plate rich in healthy fats and clean proteins.</figcaption>
-                    </figure>
+  <div id="cartoon-card">
 
-                    <p>Always try to fill half your plate with non-starchy vegetables, a quarter with lean protein, and the remaining quarter with complex carbohydrates. <a href="#">Read our full macro guide...</a></p>
-                </article>
-            </section>
+    <h2>About My Character</h2>
 
-            <section id="nutrition-tips" style="margin-top: 30px;">
-                <h2>Student-Friendly Nutrition Tips</h2>
-                
-                <article>
-                    <h3>1. Master the Art of Smart Snacking</h3>
-                    <p>Swap out processed chips for handfuls of almonds, pumpkin seeds, or apple slices paired with peanut butter. These keep your blood sugar stable during long study sessions.</p>
-                    <a href="#">View top 10 snack ideas</a>
-                </article>
+    <p class="cartoon-detail">Character Name: Doraemon</p>
+    <p class="cartoon-detail">Best Friend: Nobita</p>
+    <p class="cartoon-detail">Favourite Food: Dorayaki</p>
+    <p class="cartoon-detail">Special Power: Future Gadgets</p>
 
-                <article style="margin-top: 20px;">
-                    <h3>2. Hydration Over Caffeine</h3>
-                    <p>When fatigue hits, your body is often just dehydrated rather than lacking caffeine. Try drinking a full glass of water before reaching for your next cup of coffee.</p>
-                    <a href="#">Calculate your daily water goals</a>
-                </article>
-            </section>
+  </div>
 
-        </div>
+  <h2>Why I Like This Character</h2>
 
-        <aside>
-            <h2>Quick Note</h2>
-            <div class="aside-box">
-                <p>Did you know? Eating fermented foods like yogurt, kimchi, and kombucha can significantly improve gut health, which is directly linked to enhanced mental clarity and focus!</p>
-                <p style="margin-top: 10px;"><a href="#">Learn more about the gut-brain axis &rarr;</a></p>
-            </div>
-        </aside>
-
-        <div class="full-width-section" style="display: grid; gap: 30px; width: 100%;">
-            
-            <section id="video-learning">
-                <h2>Visual Learning: Understanding Macronutrients</h2>
-                <p>Check out this quick, highly informative visual breakdown explaining how your body processes carbs, fats, and proteins dynamically.</p>
-                
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Nutrition Video Tutorial" allowfullscreen></iframe>
-                </div>
-            </section>
-
-            <section id="contact" style="text-align: center;">gut health, which is directly linked to enhanced mental clarity and focus!
-            
-            Learn more about the gut-brain axis 
-                <h2>Have a Tip to Share?</h2>
-                <p>We love hearing from our community! If you have a budget-friendly student recipe or a nutrition hack that works for you, drop us an email.</p>
-                <a href="mailto:tips@nourishandglow.com" class="contact-btn">Email Us Your Tips</a>
-            </section>
-
-        </div>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Nourish & Glow Blog. All rights reserved.</p>
-        <p>
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a> | 
-            <a href="#">External Nutritional Resources</a>
-        </p>
-    </footer>
+  <p>Doraemon is kind, helpful, and funny.</p>
+  <p>He always tries to help his friends solve problems.</p>
+  <p>He teaches us about friendship and creativity.</p>
 
 </body>
 </html>
