@@ -1,69 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Colour Card</title>
+<html>
+<head>
+  <title>My Animal Fact File</title>
+  <style>
+    body {
+      background-color: green;
+      font-family: Arial, sans-serif;
+    }
+    .fact-file {
+      background-color: white;
+      color: darkslategray;
+      width: 260px;
+      padding: 25px;
+      border: 25px dashed  red;
+      margin: 30px;
+    }
+    .animal-name {
+      color: forestgreen;
+      font-size: 22px;
+    }
+    .detail {
+      color: darkslategray;
+    }
+    .cool-fact {
+      color: darkorange;
+      font-style: italic;
+    }
 
-    <style>
+  </style>
+</head>
+<body>
 
-      /* Universal Selector - applies to everything on the page */
-      * {
-        font-size: 16px;
-      }
+  <div class="fact-file">
+    <h2 class="animal-name">Snow Leopard</h2>
+    <p class="detail">Type: Big Cat</p>
+    <p class="detail">Lives in: Mountain ranges of Central Asia</p>
+    <p class="detail">Diet: Deer, goats, and wild sheep</p>
+    <p class="cool-fact">Cool Fact: Can leap up to 15 metres in one jump!</p>
+  </div>
 
-      /* Element Selectors */
-      body {
-        background-color: lightgray;
-      }
-
-      h1 {
-        color: darkblue;
-      }
-
-      h2 {
-        color: purple;
-      }
-
-      p {
-        color: dimgray;
-      }
-
-      /* Class Selector */
-      .my-detail {
-        color: darkgreen;
-        font-weight: bold;
-      }
-
-      /* ID Selector */
-      #my-card {
-        background-color: lightcyan;
-      }
-
-    </style>
-
-  </head>
-  <body>
-
-    <h1>My Colour Card</h1>
-
-    <!-- Inline CSS: Add style="color: ____;" inside this p tag -->
-    <p style="color: crimson;">Hi! This is my very own webpage.</p>
-
-    <div id="my-card">
-
-      <h2>About Me</h2>
-      <p class="my-detail">My name is Jai.</p>
-      <p class="my-detail">My favourite colour is Black.</p>
-      <p class="my-detail">My favourite subject is Maths.</p>
-      <p class="my-detail">My favourite food is Pizza.</p>
-
-    </div>
-
-    <h2>My Favourite Things</h2>
-    <p>My favourite animal is a cat.</p>
-    <p>My favourite sport is Football.</p>
-    <p>My favourite movie is The Sonic.</p>
-
-  </body>
+</body>
 </html>
