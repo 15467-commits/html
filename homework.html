@@ -1,128 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Restaurant Menu Card</title>
- 
+  <title>My Ice Cream Shop Menu</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
- 
     body {
-      font-family: Georgia, serif;
-      background-color: #fff8e7;
-      color: #3b2f2f;
+      font-family: Arial, sans-serif;
+      background-color: #fff4f8;
+      text-align: center;
+      color: #4a2c2a;
     }
- 
-    .menu-card {
-      width: 600px;
-      border: 3px solid #8b4513;
+    h1 {
+      color: #d63384;
+      font-size: 36px;
+    }
+    h1 + p {
+      color: #8a2be2;
+      font-weight: bold;
+      background-color: #ffe3f1;
+      border-radius: 10px;
+    }
+    .shop-description::first-letter {
+      font-size: 36px;
+      color: #ff1493;
+      font-weight: bold;
+    }
+    .menu-box {
+      width: 420px;
+      background-color: white;
+      border: 3px solid #ff69b4;
       border-radius: 15px;
-      background-color: #ffffff;
-      box-shadow: 0 0 20px #8b4513;
+      margin: 20px auto;
+      padding: 20px;
     }
- 
-    .restaurant-name {
-      font-size: 42px;
-      font-weight: bold;
-      color: #8b0000;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-shadow: 2px 2px 4px #d2b48c;
+    ul {
+      padding: 0;
     }
- 
-    .tagline {
+    ul > li {
+      list-style: none;
+      background-color: #fff0f5;
+      color: #5c2a4a;
       font-size: 18px;
-      font-style: italic;
-      text-align: center;
-      color: #6b4226;
-      text-decoration: underline;
-    }
- 
-    .menu-section {
-      border: 2px solid #d2b48c;
-      box-shadow: 0 0 8px #d2b48c;
-    }
- 
-    .section-title {
-      font-size: 26px;
-      color: #a0522d;
-      text-transform: capitalize;
-      text-decoration: overline;
-    }
- 
-    .dish-name {
-      font-size: 20px;
       font-weight: bold;
-      color: #4b0082;
-      text-transform: capitalize;
+      margin: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #ffb6c1;
     }
- 
-    .dish-name:hover {
-      transform: scale(1.1);
+    ul > li:nth-child(3) {
+      background-color: #fff3cd;
+      color: #b85c00;
+      border: 3px solid #ffa500;
     }
- 
-    .dish-description {
-      font-size: 15px;
-      line-height: 1.6;
-      text-indent: 30px;
-      color: #555555;
+    ul > li:hover {
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transform: scale(1.05);
     }
- 
-    .special-offer {
-      font-size: 22px;
+    button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
       font-weight: bold;
-      color: #ffffff;
-      background-color: #b22222;
-      text-align: center;
-      text-transform: uppercase;
-      text-shadow: 2px 2px 3px #000000;
-      box-shadow: 0 0 12px #b22222;
-      transform: rotate(-2deg);
+    }
+    button:hover {
+      background-color: #8a2be2;
     }
   </style>
 </head>
- 
 <body>
- 
-  <div class="menu-card">
- 
-    <h1 class="restaurant-name">Tasty Treat Cafe</h1>
- 
-    <p class="tagline">Fresh food, happy mood!</p>
- 
-    <div class="menu-section">
-      <h2 class="section-title">starters</h2>
- 
-      <p class="dish-name">cheesy garlic bread</p>
-      <p class="dish-description">
-        Crispy bread topped with melted cheese, garlic butter, and fresh herbs.
-      </p>
- 
-      <p class="dish-name">spicy corn bites</p>
-      <p class="dish-description">
-        Crunchy corn bites served with a tangy dip for a perfect evening snack.
-      </p>
-    </div>
- 
-    <div class="menu-section">
-      <h2 class="section-title">main course</h2>
- 
-      <p class="dish-name">creamy pasta bowl</p>
-      <p class="dish-description">
-        Soft pasta cooked in creamy sauce with vegetables and delicious seasoning.
-      </p>
- 
-      <p class="dish-name">veggie pizza</p>
-      <p class="dish-description">
-        A colourful pizza loaded with fresh vegetables, cheese, and tasty sauce.
-      </p>
-    </div>
- 
-    <p class="special-offer">Weekend special: 20% off!</p>
- 
+  <h1>My Ice Cream Shop Menu</h1>
+  <p>Welcome to Scoops of Joy!</p>
+  <p class="shop-description">
+    We serve colourful, creamy, and delicious ice cream flavours.
+  </p>
+  <div class="menu-box">
+    <h2>Today's Ice Cream Flavours</h2>
+    <ul>
+      <li>Chocolate Delight</li>
+      <li>Strawberry Swirl</li>
+      <li>Mango Magic - Today's Special</li>
+      <li>Vanilla Dream</li>
+      <li>Blueberry Blast</li>
+    </ul>
+    <button>Order Now</button>
   </div>
- 
 </body>
 </html>
