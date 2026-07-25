@@ -1,51 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Food Diary</title>
+  <title>My Science Lab</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
-    body {
-      background-color: linen;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-    }
-    h2 { color: chocolate; margin-top: 25px; }
-    abbr { color: chocolate; font-weight: bold; cursor: help; }
-    blockquote {
-      border-left: 8px solid brown;
-      padding-left: 15px;
-      color: dimgray;
-      font-style: italic;
-      text-align: left;
-      display: inline-block;
-    }
-    hr { border-color: chocolate; }
-
+    body { background-color: #f4fff4; font-family: Arial, sans-serif; }
+    .jumbotron { background-color: #e6f9ec; border-left: 6px solid #FF5A43; }
+    .jumbotron h1 { color: #FF5A43; }
+    .section-title { color: #FF5A43; margin-top: 30px; margin-bottom: 15px; }
+    p { font-weight: bold; margin-bottom: 5px; }
   </style>
 </head>
 <body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>My Science Lab</h1>
+      <p class="lead">Welcome to the lab! Here are the experiments running, the discoveries made, and how far each research project has come.</p>
+      <button class="btn btn-primary">Chemistry</button>
+      <button class="btn btn-success">Biology</button>
+      <button class="btn btn-warning">Physics</button>
+      <button class="btn btn-danger">Astronomy</button>
+    </div>
+  </div>
 
-  <p class="display-1">MY FOOD DIARY</p>
-  <p class="display-2">My Top Dishes</p>
-  <p class="display-3">Fun Food Facts</p>
-  <p class="display-4">Food Guide <small>by Alex</small></p>
+  <div class="container">
+    <h2 class="section-title">Experiments Completed <span class="badge badge-danger">4</span></h2>
+    <p>Chemistry <span class="badge badge-primary">7 experiments</span></p>
+    <p>Biology <span class="badge badge-success">5 experiments</span></p>
+    <p>Physics <span class="badge badge-warning">3 experiments</span></p>
+    <p>Astronomy <span class="badge badge-info">4 experiments</span></p>
+    <h2 class="section-title">Research Progress</h2>
+    <p>Chemistry</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-primary" style="width: 85%">85%</div>
+    </div>
+    <p>Biology</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 70%">70%</div>
+    </div>
+    <p>Physics</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-warning" style="width: 55%">55%</div>
+    </div>
+    <p>Astronomy</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-danger" style="width: 40%">40%</div>
+    </div>
 
-  <hr>
-  <h2>Did You Know?</h2>
-  <p>Pizza is the <mark>most popular</mark> food ordered by kids around the world.</p>
-  <p>It takes about 30 minutes to bake a perfect homemade pizza.</p>
+  </div>
 
-  <hr>
-  <h2>Cooking Style</h2>
-  <p>My favourite way to cook with family is a good old <abbr title="Barbecue">BBQ</abbr> on a sunny day.</p>
-
-  <hr>
-  <h2>Food Quote</h2>
-  <blockquote>
-    <p>"First we eat, then we do everything else."</p>
-    <p>— M.F.K. Fisher</p>
-  </blockquote>
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
