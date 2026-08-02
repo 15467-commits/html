@@ -1,43 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My Animal Fact File</title>
-  <style>
-    body {
-      background-color: green;
-      font-family: Arial, sans-serif;
-    }
-    .fact-file {
-      background-color: white;
-      color: darkslategray;
-      width: 260px;
-      padding: 25px;
-      border: 25px dashed  red;
-      margin: 30px;
-    }
-    .animal-name {
-      color: forestgreen;
-      font-size: 22px;
-    }
-    .detail {
-      color: darkslategray;
-    }
-    .cool-fact {
-      color: darkorange;
-      font-style: italic;
-    }
 
-  </style>
-</head>
 <body>
 
-  <div class="fact-file">
-    <h2 class="animal-name">Snow Leopard</h2>
-    <p class="detail">Type: Big Cat</p>
-    <p class="detail">Lives in: Mountain ranges of Central Asia</p>
-    <p class="detail">Diet: Deer, goats, and wild sheep</p>
-    <p class="cool-fact">Cool Fact: Can leap up to 15 metres in one jump!</p>
-  </div>
+<h1 id="myH"></h1>
+<p id="myP"></p>
+
+<script>
+    // My heading:
+    document.getElementById("myH").innerHTML = "JavaScript Comments";
+
+// My paragraph:
+document.getElementById("myP").innerHTML = "My first paragraph.";
+
+</script>
 
 </body>
-</html>
