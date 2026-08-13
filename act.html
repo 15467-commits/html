@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    </head>
 
-<body>
-<script>
-    var num1 = 10;
-    var num2 = 2;
-    var add = num1 + num2;
-var sub = num1 - num2;
-var mul = num1 * num2;
-var div = num1 / num2;
-document.getElementById("add").innerHTML =1
-"The added value is: " + add;
-document.getElementById("sub").innerHTML =1
-"The subtracted value is: " + sub;
-document.getElementById("mul").innerHTML =1
-"The multiplied value is: " + mul;
-document.getElementById("div").innerHTML =1
-"The divided value is: " + div;
+  <body>
+    <script>
+function multiply(a,b)
+{
+    if(b === 8)
+    {
+    alert ("The value of b is 8");
+    b=5;
+    }
+    var result = a * b;
+    document.getElementById("result").innerHTML = result;
+}
+
 </script>
-<h1>Simple Calculator</h1>
-<p>Perform all Operations using JavaScript</p>
-<p id="add"></p>
-<p id="sub"></p>
-<p id="mul"></p>
-<p id="div"></p>
+    <button onclick="multiply(4, 8)">Click Me!</button>
+    <p id="result"></p>
+  </body>
+</html>
