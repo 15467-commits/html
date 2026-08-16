@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    </head>
-
   <body>
     <script>
-function multiply(a,b)
-{
-    if(b === 8)
-    {
-    alert ("The value of b is 8");
-    b=5;
-    }
-    var result = a * b;
-    document.getElementById("result").innerHTML = result;
-}
-
-</script>
-    <button onclick="multiply(4, 8)">Click Me!</button>
+    var number = " ";
+    for (i = 1; i < 11; i++) {number += " <br> ";
+}    document.write("The random value is " + Math.floor(Math.random() * 100));
+var date = new Date();
+document.write("Today's Date is " + date.getDate());
+    </script>
+    <h2>JavaScript String Methods and Loops</h2>
+    <p>Numbers form 1 to 10</p>
     <p id="result"></p>
   </body>
 </html>
