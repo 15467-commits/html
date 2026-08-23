@@ -1,91 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Zoo</title>
+  <title>My Game Profile</title>
   <style>
-
     body {
       font-family: Arial, sans-serif;
       background: aliceblue;
       text-align: center;
       padding: 30px;
     }
-
-    h1 {
-      color: #ff5a43;
-    }
-
-    #zoo {
-      border: 2px solid #ff5a43;
-      width: 300px;
-      margin: 16px auto;
-      padding: 12px;
-      border-radius: 10px;
-      background: white;
-    }
-
-    .zone {
-      border: 1px solid #ff5a43;
-      margin: 6px 0;
-      padding: 8px 12px;
-      border-radius: 6px;
-      text-align: left;
-    }
-
+    h1 { color: navy; }
     button {
-      background: #ff5a43;
+      background: navy;
       color: white;
-      padding: 10px 24px;
+      padding: 10px 25px;
       border: none;
       border-radius: 20px;
       cursor: pointer;
     }
-
+    div {
+      border: 1px solid navy;
+      width: 280px;
+      margin: 6px auto;
+      padding: 8px 12px;
+      text-align: left;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
 
-  <h1>My Zoo</h1>
-  <p>Use JavaScript and the DOM to add animals to each cage!</p>
+  <h1>My Game Profile</h1>
+  <button onclick="showProfile()">Show Profile</button>
 
-  <!--
-    DOM Tree: zoo is the parent element node.
-    Zone divs are child element nodes. Animal names inside each span are text nodes.
-  -->
-  <div id="zoo">
-    <div class="zone">Zone 1: <span id="zone1"></span></div>
-    <div class="zone">Zone 2: <span id="zone2"></span></div>
-    <div class="zone">Zone 3: <span id="zone3"></span></div>
-    <div class="zone">Total Animals: <span id="total"></span></div>
-  </div>
-
-  <br>
-
-  <button onclick="openZoo()">Open the Zoo!</button>
-
-  <p id="zoo-status"></p>
+  <div>Name: <span id="name"></span></div>
+  <div>Score: <span id="score"></span></div>
+  <div>Top Score: <span id="record"></span></div>
+  <div>Rank: <span id="rank"></span></div>
+  <div>Greeting: <span id="greeting"></span></div>
+  <div>Stars: <span id="stars"></span></div>
+  <div>Bonus Level: <span id="bonus"></span></div>
+  <div>Team Name: <span id="team"></span></div>
 
   <script>
 
-    function openZoo() {
+    function showProfile() {
 
-      /* Task 1: Add your first animal to Zone 1 */
-      document.getElementById("zone1").innerHTML = "Lion";
+      // Variables
+      let name      = "Alex";
+      let myScore   = 75;
+      let highScore = 100;
+      let bonus     = null;
+      let team;
 
-      /* Task 2: Add your second animal to Zone 2 */
-      document.getElementById("zone2").innerHTML = "Elephant";
+      // Comparison Operator
+      let isTopScore = myScore == highScore;
 
-      /* Task 3: Add your third animal to Zone 3 */
-      document.getElementById("zone3").innerHTML = "Penguin";
+      // if / else — Rank
+      let rank;
+      if (myScore >= 80) {
+        rank = "Gold";
+      } else if (myScore >= 50) {
+        rank = "Silver";
+      } else {
+        rank = "Bronze";
+      }
 
-      /* Task 4: Show the total number of animals */
-      document.getElementById("total").innerHTML = "3";
+      // Date Object — Greeting
+      let hour = new Date().getHours();
+      let greeting;
+      if (hour < 12) {
+        greeting = "Good Morning!";
+      } else if (hour < 17) {
+        greeting = "Good Afternoon!";
+      } else {
+        greeting = "Good Evening!";
+      }
 
-      /* Task 5: Change the zoo background colour */
-      document.getElementById("zoo").style.backgroundColor = "lightgreen";
+      // While Loop — Stars
+      let stars = "";
+      let count = 0;
+      while (count < 5) {
+        stars = stars + "* ";
+        count = count + 1;
+      }
 
-      /* Task 6: Use the document object to show the page title */
-      document.getElementById("zoo-status").innerHTML = document.title + " is now open!";
+      // String Concatenation — Show on Page
+      document.getElementById("name").innerHTML     = name;
+      document.getElementById("score").innerHTML    = myScore + " out of " + highScore;
+      document.getElementById("record").innerHTML   = isTopScore;
+      document.getElementById("rank").innerHTML     = rank;
+      document.getElementById("greeting").innerHTML = greeting;
+      document.getElementById("stars").innerHTML    = stars;
+      document.getElementById("bonus").innerHTML    = bonus;
+      document.getElementById("team").innerHTML     = team;
 
     }
 
