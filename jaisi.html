@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Magic Word Lab</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body { background: lightyellow; }
+    h1, h3 { color: darkorange; }
+    .box { background: white; color: darkorange; }
+  </style>
+</head>
+<body>
+<div class="container py-4">
+  <h1 class="mb-1">My Magic Word Lab</h1>
+  <p class="text-muted mb-4">Discover types, switch them, find and swap words, and catch sneaky errors!</p>
+  <!-- TOPIC 1: typeof -->
+  <div class="card mb-4"><div class="card-body">
+    <h3 class="card-title">What Type Is It?</h3>
+    <button class="btn btn-warning" onclick="checkTypes()">Reveal the Types!</button>
+    <div id="typeResult" class="box p-3 mt-3 rounded">Press the button to reveal the secret types!</div>
+  </div></div>
+  <!-- TOPIC 2: String() and Number() -->
+  <div class="card mb-4"><div class="card-body">
+    <h3 class="card-title">Switch the Type</h3>
+    <input id="numIn" class="form-control mb-2" placeholder="Type any number here (try: 42)">
+    <button class="btn btn-warning mr-2" onclick="toStr()">Turn into Text</button>
+    <button class="btn btn-warning" onclick="toNum()">Turn into Number</button>
+    <div id="convResult" class="box p-3 mt-3 rounded">Type a number above then press a button!</div>
+  </div></div>
+  <!-- TOPIC 3: search() and replace() -->
+  <div class="card mb-4"><div class="card-body">
+    <h3 class="card-title">Find and Swap a Word</h3>
+    <input id="findW" class="form-control mb-2" placeholder="Word to find (try: dragon)">
+    <input id="swapW" class="form-control mb-2" placeholder="Swap it with (try: wizard)">
+    <button class="btn btn-warning mr-2" onclick="doSearch()">Find It!</button>
+    <button class="btn btn-warning" onclick="doReplace()">Swap It!</button>
+    <div id="srResult" class="box p-3 mt-3 rounded">Sentence: "The dragon flew over the big castle."</div>
+  </div></div>
+  <!-- TOPIC 4: try/catch -->
+  <div class="card mb-4"><div class="card-body">
+    <h3 class="card-title">Catch the Mistake</h3>
+    <input id="divIn" class="form-control mb-2" placeholder="Divide 100 by this — try a number or type something silly!">
+    <button class="btn btn-warning" onclick="trySafe()">Try It!</button>
+    <div id="errResult" class="box p-3 mt-3 rounded">Type a number or something silly and see what happens!</div>
+  </div></div>
+</div>
+<script>
+  var sen = "The dragon flew over the big castle.";
+  function checkTypes() {
+    document.getElementById("typeResult").innerText =
+      "Score 42        — type: " + typeof 42 + "\n" +
+      "Name 'Alex'     — type: " + typeof "Alex" + "\n" +
+      "Game over true  — type: " + typeof true;
+  }
+  function toStr() {
+    var v = document.getElementById("numIn").value;
+    document.getElementById("convResult").innerHTML = "String(" + v + ") = '" + String(v) + "' — now it is a: " + typeof String(v);
+  }
+  function toNum() {
+    var v = document.getElementById("numIn").value;
+    document.getElementById("convResult").innerHTML = "Number('" + v + "') = " + Number(v) + " — now it is a: " + typeof Number(v);
+  }
+  function doSearch() {
+    var w = document.getElementById("findW").value;
+    var p = sen.search(w);
+    document.getElementById("srResult").innerHTML = p === -1 ? "'" + w + "' is not in the sentence — try another word!" : "Found '" + w + "' hiding at position " + p + "!";
+  }
+  function doReplace() {
+    var w = document.getElementById("findW").value;
+    document.getElementById("srResult").innerHTML = "New sentence: " + sen.replace(w, document.getElementById("swapW").value);
+  }
+  function trySafe() {
+    try {
+      var n = document.getElementById("divIn").value;
+      if (n === "" || isNaN(n)) { throw "That is not a number — you caught the error!"; }
+      document.getElementById("errResult").innerHTML = "100 / " + n + " = " + (100 / Number(n)) + " — well done!";
+    } catch(err) { document.getElementById("errResult").innerHTML = "Error caught: " + err; }
+  }
+</script>
+</body></html>
