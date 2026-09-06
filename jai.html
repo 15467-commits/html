@@ -1,102 +1,205 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Game Profile</title>
+  <title>My Birthday Countdown Checker</title>
+
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: aliceblue;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      color: #3b2f2f;
       text-align: center;
-      padding: 30px;
     }
-    h1 { color: navy; }
-    button {
-      background: navy;
-      color: white;
-      padding: 10px 25px;
-      border: none;
+
+
+    .birthday-card {
+      width: 520px;
+      background-color: white;
+      border: 4px solid #ff6f91;
       border-radius: 20px;
-      cursor: pointer;
+      margin: 40px auto;
+      padding: 25px;
+      box-shadow: 0 0 20px #ff8fab;
     }
-    div {
-      border: 1px solid navy;
-      width: 280px;
-      margin: 6px auto;
-      padding: 8px 12px;
+
+
+    h1 {
+      color: #ff477e;
+      font-size: 34px;
+    }
+
+
+    .emoji {
+      font-size: 60px;
+    }
+
+
+    .info-box {
+      background-color: #fff0f5;
+      border: 2px dashed #ff6f91;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 15px;
       text-align: left;
-      border-radius: 6px;
+    }
+
+
+    button {
+      background-color: #ff477e;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 25px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+
+    button:hover {
+      background-color: #d6336c;
+    }
+
+
+    #daysBox {
+      font-size: 42px;
+      font-weight: bold;
+      color: #7209b7;
+    }
+
+
+    #result {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+
+    #countdown {
+      color: #ff477e;
+      font-weight: bold;
+      line-height: 1.6;
     }
   </style>
 </head>
+
+
 <body>
 
-  <h1>My Game Profile</h1>
-  <button onclick="showProfile()">Show Profile</button>
 
-  <div>Name: <span id="name"></span></div>
-  <div>Score: <span id="score"></span></div>
-  <div>Top Score: <span id="record"></span></div>
-  <div>Rank: <span id="rank"></span></div>
-  <div>Greeting: <span id="greeting"></span></div>
-  <div>Stars: <span id="stars"></span></div>
-  <div>Bonus Level: <span id="bonus"></span></div>
-  <div>Team Name: <span id="team"></span></div>
+  <div class="birthday-card">
+
+
+    <div class="emoji">Birthday Time</div>
+
+
+    <h1>My Birthday Countdown Checker</h1>
+
+
+    <p>
+      Click the button to check how many days are left for the birthday celebration.
+    </p>
+
+
+    <button onclick="checkBirthday()">Check Birthday Countdown</button>
+
+
+    <h2>Days Left</h2>
+    <div id="daysBox">?</div>
+
+
+    <div class="info-box">
+      <h2>Birthday Result</h2>
+      <p id="result"></p>
+    </div>
+
+
+    <div class="info-box">
+      <h2>Countdown Review</h2>
+      <p id="countdown"></p>
+    </div>
+
+
+  </div>
+
 
   <script>
+    function checkBirthday() {
 
-    function showProfile() {
 
-      // Variables
-      let name      = "Alex";
-      let myScore   = 75;
-      let highScore = 100;
-      let bonus     = null;
-      let team;
+      // Null and Undefined
+      let birthdayGift = null;
+      let birthdayPlan;
 
-      // Comparison Operator
-      let isTopScore = myScore == highScore;
 
-      // if / else — Rank
-      let rank;
-      if (myScore >= 80) {
-        rank = "Gold";
-      } else if (myScore >= 50) {
-        rank = "Silver";
+      // Block Scope using let and const
+      const studentName = "Aarav";
+      const birthdayMonth = 8;
+      const birthdayDate = 15;
+
+
+      let message = "";
+      let countdownText = "";
+
+
+      // The Date Object
+      let today = new Date();
+      let currentYear = today.getFullYear();
+
+
+      let birthday = new Date(currentYear, birthdayMonth - 1, birthdayDate);
+
+
+      // Comparison Operator with if statement
+      if (birthday < today) {
+        birthday = new Date(currentYear + 1, birthdayMonth - 1, birthdayDate);
+      }
+
+
+      let timeDifference = birthday - today;
+      let daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+
+      // Comparison Operators and if/else Conditional Statements
+      if (daysLeft === 0) {
+        message = "Happy Birthday, " + studentName + "! Today is your special day!";
+      } else if (daysLeft <= 7) {
+        message = "Your birthday is almost here, " + studentName + "!";
       } else {
-        rank = "Bronze";
+        message = "Keep counting, " + studentName + "! Your birthday is coming soon.";
       }
 
-      // Date Object — Greeting
-      let hour = new Date().getHours();
-      let greeting;
-      if (hour < 12) {
-        greeting = "Good Morning!";
-      } else if (hour < 17) {
-        greeting = "Good Afternoon!";
-      } else {
-        greeting = "Good Evening!";
+
+      // String Concatenation
+      let finalMessage = "Student Name: " + studentName + "<br>";
+      finalMessage = finalMessage + "Today's Date: " + today.toDateString() + "<br>";
+      finalMessage = finalMessage + "Birthday Date: " + birthday.toDateString() + "<br>";
+      finalMessage = finalMessage + "Message: " + message + "<br><br>";
+
+
+      finalMessage = finalMessage + "Birthday Gift: " + birthdayGift + "<br>";
+      finalMessage = finalMessage + "Birthday Plan: " + birthdayPlan;
+
+
+      document.getElementById("daysBox").innerHTML = daysLeft;
+      document.getElementById("result").innerHTML = finalMessage;
+
+
+      // While Loop
+      let day = 1;
+
+
+      while (day <= 5) {
+        countdownText = countdownText + "Countdown check " + day;
+        countdownText = countdownText + ": Birthday excitement loading...<br>";
+        day++;
       }
 
-      // While Loop — Stars
-      let stars = "";
-      let count = 0;
-      while (count < 5) {
-        stars = stars + "* ";
-        count = count + 1;
-      }
 
-      // String Concatenation — Show on Page
-      document.getElementById("name").innerHTML     = name;
-      document.getElementById("score").innerHTML    = myScore + " out of " + highScore;
-      document.getElementById("record").innerHTML   = isTopScore;
-      document.getElementById("rank").innerHTML     = rank;
-      document.getElementById("greeting").innerHTML = greeting;
-      document.getElementById("stars").innerHTML    = stars;
-      document.getElementById("bonus").innerHTML    = bonus;
-      document.getElementById("team").innerHTML     = team;
-
+      document.getElementById("countdown").innerHTML = countdownText;
     }
-
   </script>
+
+
 </body>
 </html>
