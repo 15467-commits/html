@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration Form</title>
+ 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7ff;
+      color: #222222;
+      text-align: center;
+    }
+ 
+    .form-card {
+      width: 520px;
+      background-color: white;
+      border: 3px solid #3b82f6;
+      border-radius: 18px;
+      margin: 40px auto;
+      padding: 25px;
+      box-shadow: 0 0 18px #93c5fd;
+    }
+ 
+    h1 {
+      color: #1d4ed8;
+    }
+ 
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+ 
+    input,
+    select {
+      width: 95%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 2px solid #93c5fd;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+ 
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+ 
+    button:hover {
+      background-color: #1e40af;
+    }
+ 
+    #feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+ 
+    .success {
+      background-color: #dcfce7;
+      color: #166534;
+      border: 2px solid #22c55e;
+    }
+ 
+    .error {
+      background-color: #fee2e2;
+      color: #991b1b;
+      border: 2px solid #ef4444;
+    }
+  </style>
+</head>
+ 
+<body>
+ 
+  <div class="form-card">
+ 
+    <h1>Event Registration Form</h1>
+ 
+    <p>
+      Fill in the form to register for the school event and generate your event pass.
+    </p>
+ 
+    <form id="eventForm">
+ 
+      <label for="studentName">Student Name</label>
+      <input
+        type="text"
+        id="studentName"
+        required
+        minlength="3"
+        placeholder="Enter your name"
+      >
+ 
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        required
+        placeholder="Enter your email"
+      >
+ 
+      <label for="age">Age</label>
+      <input
+        type="number"
+        id="age"
+        required
+        min="8"
+        max="18"
+        placeholder="Enter your age"
+      >
+ 
+      <label for="eventName">Choose Event</label>
+      <select id="eventName" required>
+        <option value="">Select an event</option>
+        <option value="Science Fair">Science Fair</option>
+        <option value="Coding Workshop">Coding Workshop</option>
+        <option value="Art Competition">Art Competition</option>
+        <option value="Sports Day">Sports Day</option>
+      </select>
+ 
+      <button type="button" onclick="registerEvent()">Register Now</button>
+ 
+    </form>
+ 
+    <div id="feedback">
+      Waiting for registration...
+    </div>
+ 
+  </div>
+ 
+  <script>
+    function registerEvent() {
+ 
+      let form = document.getElementById("eventForm");
+      let feedback = document.getElementById("feedback");
+ 
+      try {
+ 
+        // Constraint Validation API
+        if (!form.checkValidity()) {
+          throw form.reportValidity();
+        }
+ 
+        // Accessing Form Data
+        let studentName = document.getElementById("studentName").value;
+        let email = document.getElementById("email").value;
+        let age = Number(document.getElementById("age").value);
+        let eventName = document.getElementById("eventName").value;
+ 
+        // Writing Validation Conditions
+        if (studentName.length < 3) {
+          throw "Name must have at least 3 characters.";
+        }
+ 
+        if (age < 8 || age > 18) {
+          throw "Age must be between 8 and 18.";
+        }
+ 
+        if (eventName === "") {
+          throw "Please select an event.";
+        }
+ 
+        // DOM Feedback before timer
+        feedback.className = "";
+        feedback.innerHTML = "Checking your registration details...";
+ 
+        // Timers and Random Numbers
+        setTimeout(function() {
+          let passNumber = Math.floor(Math.random() * 9000) + 1000;
+ 
+          feedback.className = "success";
+          feedback.innerHTML =
+            "Registration Successful!<br>" +
+            "Student Name: " + studentName + "<br>" +
+            "Email: " + email + "<br>" +
+            "Age: " + age + "<br>" +
+            "Event: " + eventName + "<br>" +
+            "Your Event Pass Number: EVT-" + passNumber;
+        }, 2000);
+ 
+      } catch (error) {
+ 
+        // DOM Feedback for errors
+        feedback.className = "error";
+ 
+        if (error !== undefined) {
+          feedback.innerHTML = "Registration failed: " + error;
+        } else {
+          feedback.innerHTML = "Please complete all required fields correctly.";
+        }
+      }
+    }
+  </script>
+ 
+</body>
+</html>
