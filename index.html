@@ -1,18 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Susan's Restaurant</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button onclick="myfunction(5)">Execute JS function</button>
 
-<script>
-function myfunction(x, y)
-{
-    if (y=== undefined) {
-    y = 2;
-    }
-    document.write(x*y);
-}
-</script>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Susan's Kitchen</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="banner-content">
+      <h1>Welcome to Susan's Kitchen</h1>
+      <p>Delicious food made with fresh ingredients</p>
+      <a href="#menu" class="btn">View Menu</a>
+    </div>
+  </section>
+
 </body>
 </html>
