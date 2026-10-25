@@ -1,0 +1,83 @@
+.page {
+  min-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #ff7a59, #ff5a43);
+  color: white;
+  padding: 28px 20px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(255, 90, 67, 0.25);
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin: 35px 0;
+}
+
+.card {
+  background: linear-gradient(180deg, #ffffff, #fff4f1);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 2px solid #ffd2c8;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(255, 90, 67, 0.18);
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  color: #ff5a43;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 0.98rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.footer {
+  margin-top: 30px;
+  padding: 16px;
+  font-size: 0.95rem;
+  color: white;
+  background: #2f3542;
+  border-radius: 14px;
+}
+
+.card:nth-child(1) {
+  background: linear-gradient(180deg, #fff1ec, #ffe0d8);
+}
+
+.card:nth-child(2) {
+  background: linear-gradient(180deg, #fff8e8, #ffefbf);
+}
+
+.card:nth-child(3) {
+  background: linear-gradient(180deg, #eef9ff, #d9f1ff);
+}
